@@ -6,22 +6,6 @@
 
 ------
 
-### Чеклист готовности к домашнему заданию
-
-1. Установленное K8s-решение (например, MicroK8s).
-2. Установленный локальный kubectl.
-3. Редактор YAML-файлов с подключённым GitHub-репозиторием.
-
-------
-
-### Инструменты и дополнительные материалы, которые пригодятся для выполнения задания
-
-1. [Описание](https://kubernetes.io/docs/concepts/configuration/secret/) Secret.
-2. [Описание](https://kubernetes.io/docs/concepts/configuration/configmap/) ConfigMap.
-3. [Описание](https://github.com/wbitt/Network-MultiTool) Multitool.
-
-------
-
 ### Задание 1. Создать Deployment приложения и решить возникшую проблему с помощью ConfigMap. Добавить веб-страницу
 
 1. Создать Deployment приложения, состоящего из контейнеров nginx и multitool.
@@ -29,6 +13,19 @@
 3. Продемонстрировать, что pod стартовал и оба конейнера работают.
 4. Сделать простую веб-страницу и подключить её к Nginx с помощью ConfigMap. Подключить Service и показать вывод curl или в браузере.
 5. Предоставить манифесты, а также скриншоты или вывод необходимых команд.
+
+### Решение
+
+1. Создал [deployment.yaml](manifests/deployment.yaml), , состоящий из контейнеров nginx и multitool.
+2. Проверил pod стартовал и оба конейнера работают</br>
+<img src="images/Task_1_1.png" alt="Task_1_1.png" width="400" height="auto">
+3. Написал простую веб-страницу и подключиk её к Nginx с помощью ConfigMap. Подключил Service.</br>
+Так как тип сервиса- NodePort, могу продемонстрировать вывод curl на хостовой машине.</br>
+<img src="images/Task_1_2.png" alt="Task_1_2.png" width="400" height="auto">
+</br>
+Вывод в браузере.</br>
+<img src="images/Task_1_3.png" alt="Task_1_3.png" width="400" height="auto">
+
 
 ------
 
