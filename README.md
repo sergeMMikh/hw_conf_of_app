@@ -40,6 +40,23 @@
 4. Создать Ingress и необходимый Service, подключить к нему SSL в вид. Продемонстировать доступ к приложению по HTTPS. 
 4. Предоставить манифесты, а также скриншоты или вывод необходимых команд.
 
+### Решение
+
+1. Создал [Deployment](manifests/nginx-deployment.yaml) приложения, состоящий из Nginx.
+2. Взял веб-страницу из предыдущего задания и подключить её как ConfigMap к приложению.
+3. Сделал запись в `/etc/host` для homework.pt. Проверил.</br>
+<img src="images/Task_2_1.png" alt="Task_2_1.png" width="400" height="auto">
+4. Выпустил самоподписной сертификат SSL. Создал Secret для использования сертификата.</br>
+<img src="images/Task_2_2.png" alt="Task_2_2.png" width="400" height="auto">
+5. Создал [Ingress](manifests/ingress.yaml) и необходимый [Service](manifests/nginx-service.yaml), подключил к нему SSL:
+```
+spec:
+  tls:
+    - hosts:
+        - nginx.local
+      secretName: nginx-ssl-secret
+```
+
 ------
 
 ### Правила приёма работы
