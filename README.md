@@ -17,9 +17,12 @@
 ### Решение
 
 1. Создал [deployment.yaml](manifests/deployment.yaml), , состоящий из контейнеров nginx и multitool.
+2. Добавлены переменные окружения `PORT` для nginx и `HTTP_PORT` для multitool, которые читают значения из ConfigMap.
+Поля containerPort в секции ports остались фиксированными, поскольку Kubernetes требует числовые значения. Контейнер сам будет слушать порт, указанный в переменных окружения.
 2. Проверил pod стартовал и оба конейнера работают</br>
 <img src="images/Task_1_1.png" alt="Task_1_1.png" width="400" height="auto">
-3. Написал простую веб-страницу и подключиk её к Nginx с помощью ConfigMap. Подключил Service.</br>
+3. Написал простую веб-страницу и подключиk её к Nginx с помощью ConfigMap. 
+3. Подключил [Service](manifests/service.yaml). В манифестах Service нельзя использовать переменные из ConfigMap напрямую. Однако сервис всё равно работает, потому что под слушает порты, указанные через переменные окружения в Deployment.</br>
 Так как тип сервиса- NodePort, могу продемонстрировать вывод curl на хостовой машине.</br>
 <img src="images/Task_1_2.png" alt="Task_1_2.png" width="400" height="auto">
 </br>

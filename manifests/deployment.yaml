@@ -24,6 +24,12 @@ spec:
               cpu: 100m
           ports:
             - containerPort: 80
+          env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: nginx-config
+                  key: nginx-port
           volumeMounts:
             - name: nginx-html
               mountPath: /usr/share/nginx/html
@@ -40,7 +46,10 @@ spec:
             - containerPort: 8080
           env:
             - name: HTTP_PORT
-              value: "8080"
+              valueFrom:
+                configMapKeyRef:
+                  name: nginx-config
+                  key: multitool-port
       volumes:
         - name: nginx-html
           configMap:

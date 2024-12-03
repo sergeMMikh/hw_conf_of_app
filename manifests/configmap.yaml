@@ -15,3 +15,5 @@ data:
         This is the part of SMM home work "Kube configs of applications".</p>
     </body>
     </html>
+  nginx-port: "80"
+  multitool-port: "8080"
