@@ -47,6 +47,7 @@
 3. Сделал запись в `/etc/host` для homework.pt. Проверил.</br>
 <img src="images/Task_2_1.png" alt="Task_2_1.png" width="400" height="auto">
 4. Выпустил самоподписной сертификат SSL. Создал Secret для использования сертификата.</br>
+`openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=homework.pt/0=homework.pt"`</br>
 <img src="images/Task_2_2.png" alt="Task_2_2.png" width="400" height="auto">
 5. Создал [Ingress](manifests/ingress.yaml) и необходимый [Service](manifests/nginx-service.yaml), подключил к нему SSL:
 ```
