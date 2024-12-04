@@ -49,7 +49,9 @@
 4. Выпустил самоподписной сертификат SSL. Создал Secret для использования сертификата.</br>
 `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=homework.pt/0=homework.pt"`</br>
 <img src="images/Task_2_2.png" alt="Task_2_2.png" width="400" height="auto">
-5. Создал [Ingress](manifests/ingress.yaml) и необходимый [Service](manifests/nginx-service.yaml), подключил к нему SSL:
+5. Установил Nginx Ingress Controller:</br>
+`kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/baremetal/deploy.yaml`</br>
+Создал [Ingress](manifests/ingress.yaml) и необходимый [Service](manifests/nginx-service.yaml), подключил к нему SSL:
 ```
 spec:
   tls:
