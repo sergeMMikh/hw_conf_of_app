@@ -9,10 +9,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - nginx.local
+        - hemowork.pt
       secretName: nginx-ssl-secret
   rules:
-    - host: nginx.local
+    - host: hemowork.pt
       http:
         paths:
           - path: /
