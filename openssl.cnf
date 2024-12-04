@@ -11,10 +11,10 @@ ST = State
 L  = Locality
 O  = Organization
 OU = Unit
-CN = nginx.local
+CN = hemowork.pt
 
 [req_ext]
 subjectAltName = @alt_names
 
 [alt_names]
-DNS.1 = nginx.local
+DNS.1 = hemowork.pt
